@@ -7,6 +7,7 @@ name_salt char(5) ,
 mobile_number char(10),
 password_hash text,
 password_salt text default '0',
+profile_picture text,
 created_at timestamp with time zone default now()
 );
 create index on users(email_id);
@@ -23,6 +24,7 @@ alter table users add constraint name_name_salt unique(name, name_salt);
     );
     create index on sub_budget(budget_id);
     create index on sub_budget(owner_id);
+    alter table sub_budget add unique(name);
     alter table sub_budget add constraint paid_constraint check (total_amount >= paid_amount);
 
     create table sub_budget_user(
