@@ -1,12 +1,17 @@
 import {
+  Avatar,
   Box,
+  Button,
+  ButtonGroup,
   Container,
   Flex,
   Heading,
+  HStack,
   List,
   ListItem,
   Text,
 } from "@chakra-ui/react";
+import SplitItem from "./SplitItem";
 
 // type Budget
 
@@ -25,10 +30,17 @@ const BudgetNewpage = () => {
         {
           name: "Madhav",
           photo: "",
-          share: {
-            type: "percentage",
-            value: 50,
-          },
+          amount: 20,
+        },
+        {
+          name: "Madhav",
+          photo: "",
+          amount: 20,
+        },
+        {
+          name: "Madhav",
+          photo: "",
+          amount: 20,
         },
       ],
     },
@@ -40,10 +52,7 @@ const BudgetNewpage = () => {
         {
           name: "Madhav",
           photo: "",
-          share: {
-            type: "percentage",
-            value: 50,
-          },
+          amount: 20,
         },
       ],
     },
@@ -55,45 +64,56 @@ const BudgetNewpage = () => {
         {
           name: "Madhav",
           photo: "",
-          share: {
-            type: "percentage",
-            value: 50,
-          },
+          amount: 20,
         },
       ],
     },
   ];
   return (
-    <Container maxW="lg" p="4" bg="gray.200">
+    <Box w="100vw" p="4" bg="gray.100" textAlign={"center"} h="100%">
       <Box p="1">
         <Heading>XYZ's Party</Heading>
         <time>02/09/2022</time>
       </Box>
-      <Box>
+      {/* <Box>
         <Heading as="h3">
           Friends
-          {/* <Sharers></Sharers> */}
         </Heading>
         <List></List>
-      </Box>
-      <Box padding={"2"}>
-        <Heading as="h3">Items</Heading>
+      </Box> */}
+      <Box padding={"2"} textAlign="left" maxW="600px" margin="auto">
+        <Heading as="h3" fontSize={"2xl"}>
+          Items
+        </Heading>
         <List gap={"1"}>
           {subBudgets.map(({ price, name, description, people }) => (
-            <ListItem w="full" mt="2" bg="gray.100" p="2">
+            <ListItem w="full" mt="2" bg="white" p="6" borderRadius={"lg"}>
               <Flex gap="4" alignItems="center">
-                <Text fontSize={24}>{price}</Text>
+                <Text fontSize={24} fontWeight="bold">
+                  &#8377; {price}
+                </Text>
 
                 <Box>
-                  <Text>{name}</Text>
-                  <Text fontSize={"small"}>{description}</Text>
+                  <Text fontSize={22} fontWeight={"medium"}>
+                    {name}
+                  </Text>
+                  {/* <Text fontSize={"small"}>{description}</Text> */}
                 </Box>
+                <ButtonGroup ml="auto">
+                  <Button fontSize={"xl"} h={"unset"} minW={"unset"} p={1}>
+                    <i className="bx bxs-edit"></i>
+                  </Button>
+                  <Button fontSize={"xl"} h={"unset"} minW={"unset"} p={1}>
+                    <i className="bx bxs-trash"></i>
+                  </Button>
+                </ButtonGroup>
               </Flex>
 
-              <Box>
-                <List gap={"1"}>
-                  {people.map(() => (
-                    <Box></Box>
+              <Box mt="3" bg="gray.100" p="4" borderRadius={"4"}>
+                <Heading fontSize={"xl"}>Splits</Heading>
+                <List gap={"1"} mt="4">
+                  {people.map((s) => (
+                    <SplitItem {...s}></SplitItem>
                   ))}
                 </List>
               </Box>
@@ -101,7 +121,7 @@ const BudgetNewpage = () => {
           ))}
         </List>
       </Box>
-    </Container>
+    </Box>
   );
 };
 export default BudgetNewpage;

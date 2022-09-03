@@ -7,7 +7,7 @@ export default function AppLayout() {
       <Box p="4" bg="blue.600" color={"white"} fontSize="24">
         <nav
           style={{
-            maxWidth: "600px",
+            maxWidth: "62em",
             margin: "auto",
           }}
         >
@@ -40,7 +40,7 @@ export default function AppLayout() {
           </List>
         </nav>
       </Box>
-      <Box h="100%">
+      <Box>
         <Outlet></Outlet>
       </Box>
     </Flex>

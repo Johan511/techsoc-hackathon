@@ -61,11 +61,19 @@ export const routes: Route<LocationGenerics>[] = [
         element: <AppRootPage></AppRootPage>,
       },
       {
-        path: "/newBudget",
+        path: "/new-budget",
         element: <BudgetNewpage></BudgetNewpage>,
       },
       {
         path: "/budgets",
+        element: "",
+      },
+      {
+        path: "/add-friend",
+        element: "",
+      },
+      {
+        path: "/friends",
         element: "",
       },
     ],

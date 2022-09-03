@@ -1,6 +1,24 @@
-import { Box, Button, Heading, Link } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Heading,
+  Link,
+  Popover,
+  PopoverArrow,
+  PopoverCloseButton,
+  PopoverContent,
+  PopoverTrigger,
+  useDisclosure,
+} from "@chakra-ui/react";
+
+import FocusLock from "react-focus-lock";
+import NewBudgetForm from "./NewBudgetForm";
+import AddFriendForm from "./AddFriendForm";
 
 export default function AppRootPage() {
+  const BudgetPopup = useDisclosure();
+  const AddFriendPopup = useDisclosure();
+  const ManagePopup = useDisclosure();
   return (
     <Box
       maxW="600px"
@@ -17,35 +35,83 @@ export default function AppRootPage() {
       // p="34"
     >
       <Box>
-        <Heading fontSize={"4xl"} textAlign={"center"}>
+        <Heading fontSize={"5xl"} textAlign={"center"}>
           {" "}
           Welcome user name !
         </Heading>
       </Box>
 
-      <Box fontSize={"2xl"} bg="gray.200" borderRadius={"2xl"}>
-        <Link
-          display="block"
-          fontSize={"2xl"}
-          py="4"
-          px="8"
-          textDecoration="none"
-          href="newBudget"
+      <Box>
+        <Popover
+          isOpen={BudgetPopup.isOpen}
+          // initialFocusRef={firstFieldRef}
+          onOpen={BudgetPopup.onOpen}
+          onClose={BudgetPopup.onClose}
+          // placement='right'
+          closeOnBlur={true}
         >
-          Create new budget
-        </Link>
+          <PopoverTrigger>
+            <Button
+              // display="inline-block"
+              fontSize={"2xl"}
+              py="8"
+              px="12"
+              // textDecoration="none"
+              // href="/app/new-budget"
+            >
+              Create new budget
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent p={5}>
+            <FocusLock returnFocus persistentFocus={false}>
+              {/* <PopoverArrow /> */}
+              <PopoverCloseButton />
+              <NewBudgetForm onCancel={BudgetPopup.onClose}></NewBudgetForm>
+              {/* <Form firstFieldRef={firstFieldRef} onCancel={onClose} /> */}
+            </FocusLock>
+          </PopoverContent>
+        </Popover>
       </Box>
       <Box fontSize={"2xl"} bg="gray.200" borderRadius={"2xl"}>
-        <Link
-          display={"block"}
+        <Button
           fontSize={"2xl"}
-          py="4"
-          px="8"
-          textDecoration="none"
-          href="budgets"
+          py="8"
+          px="12"
+          // textDecoration="none"
+          // href="/app/budgets"
         >
           Manage Finances
-        </Link>
+        </Button>
+      </Box>
+      <Box fontSize={"2xl"} bg="gray.200" borderRadius={"2xl"}>
+        <Popover
+          isOpen={AddFriendPopup.isOpen}
+          // initialFocusRef={firstFieldRef}
+          onOpen={AddFriendPopup.onOpen}
+          onClose={AddFriendPopup.onClose}
+          // placement='right'
+          closeOnBlur={true}
+        >
+          <PopoverTrigger>
+            <Button
+              fontSize={"2xl"}
+              py="8"
+              px="12"
+              // textDecoration="none"
+              // href="/app/add-friend"
+            >
+              Add Friends
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent p={5}>
+            <FocusLock returnFocus persistentFocus={false}>
+              {/* <PopoverArrow /> */}
+              <PopoverCloseButton />
+              <AddFriendForm onCancel={AddFriendPopup.onClose}></AddFriendForm>
+              {/* <Form firstFieldRef={firstFieldRef} onCancel={onClose} /> */}
+            </FocusLock>
+          </PopoverContent>
+        </Popover>
       </Box>
     </Box>
   );

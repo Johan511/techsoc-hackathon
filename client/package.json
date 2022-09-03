@@ -16,7 +16,8 @@
     "framer-motion": "6",
     "nanoid": "^3.3.4",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "react-focus-lock": "^2.9.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
