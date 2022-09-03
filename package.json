@@ -1,0 +1,24 @@
+{
+  "name": "techsoc-hackathon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start" : "node index",
+    "dev" : "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Johan511/techsoc-hackathon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Johan511/techsoc-hackathon/issues"
+  },
+  "homepage": "https://github.com/Johan511/techsoc-hackathon#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
