@@ -24,6 +24,7 @@ alter table users add constraint name_name_salt unique(name, name_salt);
     );
     create index on sub_budget(budget_id);
     create index on sub_budget(owner_id);
+    alter table sub_budget add unique(name);
     alter table sub_budget add constraint paid_constraint check (total_amount >= paid_amount);
 
     create table sub_budget_user(
