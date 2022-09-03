@@ -3,15 +3,11 @@ const bcrypt = require ('bcrypt'); // bcrypt
 
 const saltRounds = 10; // data processing time
 
-async function loginAuth (received_pass, password_salt, password_hash){
+async function loginAuth (received_pass, password_hash){
 
-    bcrypt.compare(received_pass, password_hash, function(err, result) {
-        if(result === true){
-            return result
-        }
-      });
-      return false;
-
+    const same = await bcrypt.compare(received_pass, password_hash).catch((err) => console.log(err));
+    console.log(same)
+return same;
 }
 
 async function generateHash(received_pass) {

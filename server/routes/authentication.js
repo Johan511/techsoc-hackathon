@@ -12,29 +12,47 @@ authRouter.post("/login", async (req,res,next) =>{
 
 if(!username || !password){
    res.status(403);
+   if(!res.headersSent){
+
    res.send("No Username or Password");
+   }
    return ;
 }
 
-const user_query = "select password_salt, password_hash from users where email_id = $1"
+const user_query = "select password_salt, password_hash, user_id from users where email_id = $1"
 
 const data = await pg_pool.query(user_query, [username]);
-const auth  = loginAuth(password, data.rows[0].password_hash);
+const auth  = await loginAuth(password, data.rows[0].password_hash);
 if(auth === true){
     let payload = {}
     payload.username = username;
+    payload.user_id = data.rows[0]["user_id"]
 
     const token = jwt.sign(payload, process.env.JWT_SECRET)
-    res.cookie("jwt", JSON.stringify(token));
+    console.log(JSON.stringify(token).split('"'))
+    res.cookie("jwt", JSON.stringify(token).split('"')[1]);
     res.status(200);
+    if(!res.headersSent){
+
     res.send("Authenticated")
+    }
 }
 else{
     res.status(401);
+    if(!res.headersSent){
+
     res.send("Incorrect username-password")
+    }
 }
 
 
+})
+
+authRouter.post("/", (req,res,next) =>{
+    if(!res.headersSent){
+
+    res.send("hi")
+    }
 })
 
 authRouter.post("/register", async (req,res,next) => {
@@ -46,7 +64,10 @@ authRouter.post("/register", async (req,res,next) => {
 
     if(!registerValidation(data)){
         res.status(400);
+        if(!res.headersSent){
+
         res.send("Invalid Data");
+        }
         return;
     }
 
@@ -54,19 +75,29 @@ authRouter.post("/register", async (req,res,next) => {
         password_hash) values ($1, $2, $3, $4)"
 
     const db_reply = await pg_pool.query(register_query, data).catch((err) => {
+        // check errror code while replying
         res.status(500);
+        if(!res.headersSent){
+
         res.send("Error while entering into DB")
+        }
         return;
     });
 
         if(db_reply){
             res.status(200);
+            if(!res.headersSent){
+
             res.send("Registered")
+            }
             return;
         }
         else{
             res.status(500);
+            if(!res.headersSent){
+
             res.send("error while registering")
+            }
             return;
         }
 
