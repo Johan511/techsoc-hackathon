@@ -1,1 +1,1 @@
-Budget Splitting Application
+# Budget Splitting Application
