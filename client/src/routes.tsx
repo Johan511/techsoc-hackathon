@@ -15,6 +15,8 @@ import { LocationGenerics } from "./types";
 import AppLayout from "./pages/app/AppLayout";
 import LoginPage from "./pages/auth/SignIn";
 import RegisterPage from "./pages/auth/SignUp";
+import AppRootPage from "./pages/app/Root";
+import NotFoundPage from "./pages/Error/NotFound";
 
 export const routes: Route<LocationGenerics>[] = [
   {
@@ -48,15 +50,23 @@ export const routes: Route<LocationGenerics>[] = [
     ],
   },
   {
-    path: "/budgets",
+    path: "/app",
     element: <AppLayout></AppLayout>,
     // loader: async (routeMatch: { params: { sid: string } }) => {
     //   return { profile: await API.getMyProfile() };
     // },
     children: [
       {
-        path: "/new",
+        path: "/",
+        element: <AppRootPage></AppRootPage>,
+      },
+      {
+        path: "/newBudget",
         element: <BudgetNewpage></BudgetNewpage>,
+      },
+      {
+        path: "/budgets",
+        element: "",
       },
     ],
     // children: [
@@ -85,4 +95,8 @@ export const routes: Route<LocationGenerics>[] = [
   //     return { profile: await API.getProfile(routeMatch.params.sid) };
   //   },
   // },
+  {
+    path: "/*",
+    element: <NotFoundPage></NotFoundPage>,
+  },
 ];

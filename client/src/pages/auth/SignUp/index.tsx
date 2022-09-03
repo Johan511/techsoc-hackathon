@@ -15,6 +15,7 @@ import {
   FormHelperText,
   InputRightElement,
   Center,
+  InputLeftAddon,
 } from "@chakra-ui/react";
 
 // import {} from "@chakra-ui/icons"
@@ -62,6 +63,17 @@ const RegisterPage = () => {
               </InputGroup>
             </FormControl>
             <FormControl>
+              <label>Phone number</label>
+              <InputGroup>
+                {/* <InputLeftElement
+                  pointerEvents="none"
+                  children={<i className="bx bxs-phone"></i>}
+                /> */}
+                <InputLeftAddon children="+91" />
+                <Input type="email" placeholder="9999999999" />
+              </InputGroup>
+            </FormControl>
+            <FormControl>
               <label>Password</label>
               <InputGroup>
                 <InputLeftElement
@@ -97,7 +109,7 @@ const RegisterPage = () => {
             </FormControl>
 
             <Button
-              borderRadius={0}
+              // borderRadius={4}
               type="submit"
               variant="solid"
               colorScheme="teal"
@@ -110,7 +122,7 @@ const RegisterPage = () => {
       </Flex>
       <Center>
         <span>Already Registered ?</span>
-        <ChakraLink to="/auth/signin" color="teal.500" as={Link}>
+        <ChakraLink to="/auth/login" color="teal.500" as={Link}>
           {" "}
           Sign In
         </ChakraLink>

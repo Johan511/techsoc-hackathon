@@ -38,7 +38,7 @@ const LoginPage = () => {
         gap={"1em"}
       >
         <Avatar bg="teal.500" />
-        <Heading color="teal.400">Welcome</Heading>
+        <Heading color="teal.400">Welcome Back</Heading>
         <form>
           <Stack spacing={4}>
             <FormControl>
