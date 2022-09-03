@@ -10,18 +10,13 @@ async function loginAuth (received_pass, password_salt, password_hash){
             return result
         }
       });
+      return false;
 
 }
 
 async function generateHash(received_pass) {
-    bcrypt.hash(received_pass, saltRounds, function(err, hash) {
-        let values = [hash, username]; // query values
-        // store hash in database
-        db.query(statement, values, function(err,res) {
-          if (err) throw err;
-          else {
-                  console.log("stored!");
-              }
-        });
+    hash = await bcrypt.hash(received_pass,10)
+    return hash;
 }
-}
+
+module.exports = {loginAuth, generateHash};
