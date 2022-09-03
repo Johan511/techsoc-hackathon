@@ -7,6 +7,7 @@ name_salt char(5) ,
 mobile_number char(10),
 password_hash text,
 password_salt text default '0',
+profile_picture text,
 created_at timestamp with time zone default now()
 );
 create index on users(email_id);
