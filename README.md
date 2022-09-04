@@ -16,6 +16,7 @@ Assumptions- Node.JS and NPM are installed on the computer.
 
 1)Starting the server
 ```
+docker compose up
 npm run built
 npm run start
 
