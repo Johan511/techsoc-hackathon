@@ -24,7 +24,7 @@ Budget splitting app can be used to keep track of our budget and maintain a reco
 
 
 
-
+<b>Design Workflow:
 
 ![Screenshot (583)](https://user-images.githubusercontent.com/75605140/188297710-7130a85f-549f-47d6-90c3-067d397b9034.png)
 
