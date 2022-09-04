@@ -47,6 +47,15 @@ npm run start
 
 ![Screenshot (583)](https://user-images.githubusercontent.com/75605140/188299743-501cd404-2cf5-438e-8f0d-7d624b12b1b2.png)
 
+### API Testing on **Postman**
+![techsoc6](https://user-images.githubusercontent.com/75605140/188300693-2e5ad9e1-9620-4549-b12a-77c066509cce.jpeg)
+![techsoc7](https://user-images.githubusercontent.com/75605140/188300692-4f755f97-b565-4005-872e-bb54db68c6ed.jpeg)
+![techsoc8](https://user-images.githubusercontent.com/75605140/188300690-7a84f0ab-aa0d-4714-8aa1-88dc0c3afd0f.jpeg)
+![techsoc9](https://user-images.githubusercontent.com/75605140/188300689-08c06485-8006-48a9-b71b-0f9f18360c7f.jpeg)
+![techsoc10](https://user-images.githubusercontent.com/75605140/188300688-e739c32a-657a-4d08-8080-49b8cde6979f.jpeg)
+
+
+
 
 
 
