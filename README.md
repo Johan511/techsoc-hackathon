@@ -14,9 +14,11 @@ Budget splitting app can be used to keep track of our budget and maintain a reco
 
 
 
+![techsoc1](https://user-images.githubusercontent.com/75605140/188299571-f0237201-3299-46bd-bd15-a705373260f7.jpeg)
 
+![techsoc2](https://user-images.githubusercontent.com/75605140/188299569-010a605a-a4fc-4691-a984-dc975fea6eb1.jpeg)
 
-
+![techsoc3](https://user-images.githubusercontent.com/75605140/188299568-4a52ef14-0727-4c72-9eb6-72db10c37cba.jpeg)
 
 
 
