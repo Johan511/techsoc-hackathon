@@ -72,6 +72,24 @@ usersRouter.get(
   }
 );
 
+usersRouter.get("/me", user_auth, (req, res, next) => {
+  const res_json = {};
+  const me_query =
+    "SELECT user_id, email_id, name, name_salt, mobile_number, profile_picture from users where user_id = $1";
+  pg_pool.query(me_query, [req.user_id], (err, result) => {
+    if (err) {
+      console.log(err);
+      res.status(500);
+      res.send("Error retrieving data");
+    } else {
+      if (!res.headersSent) {
+        res.status(200);
+        res.send(result.rows);
+      }
+    }
+  });
+});
+
 usersRouter.get("/get_friends", user_auth, (req, res, next) => {
   const getall_friend_query =
     "select distinct friends.friendship_id ,friends.sender_id ,friends.receiver_id ,\
@@ -80,7 +98,6 @@ usersRouter.get("/get_friends", user_auth, (req, res, next) => {
     from friends  inner join users on friends.sender_id = $1 or friends.receiver_id = $1";
 
   pg_pool.query(getall_friend_query, [req.user_id], (err, result) => {
-    console.log("HI");
     if (err) {
       console.log(err);
       res.status(500);
