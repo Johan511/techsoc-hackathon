@@ -56,10 +56,12 @@ npm run start
 
 
 
-## Acknowledgements:
+Acknowledgements:
 
 Prasanth- Designing on [Figma](figma.com), Mock data on Mockaroo
+
 Madhav P- Working on Frontend using React and ChakraUI
+
 Naveen-   Working on Backend using Express(NodeJS), Postgres database and API testing using Postman
 
 
