@@ -1,6 +1,6 @@
 # Budget Splitting Application
 
-We will be using React and ChakraUI for the frontend of this application. And for backend, we will be using postgres database and it would be deployed on Azure.
+We will be using React and ChakraUI for the frontend of this application. And for backend, we will be using Postgres database and it would be deployed on Azure.
 
 Budget splitting app can be used to keep track of our budget and maintain a record of how much money is to be received by us or paid to others. We can see how much money is owed by and to us at multiple occasions.
 
@@ -17,14 +17,14 @@ Assumptions- Node.JS and NPM are installed on the computer.
 1)Starting the server
 ```
 docker compose up
-npm run built
+npm run build
 npm run start
 
 ```
 2)Starting the client
 ```
 cd client
-npm run built
+npm run build
 npm run start
 ```
 **Link**: 
