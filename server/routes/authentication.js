@@ -68,7 +68,7 @@ authRouter.post("/register", async (req, res, next) => {
     // check errror code while replying
     res.status(500);
     if (!res.headersSent) {
-      res.send("Error while entering into DB");
+      res.send("Duplicate email_id");
     }
     return;
   });

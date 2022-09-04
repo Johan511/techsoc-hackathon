@@ -24,6 +24,32 @@ budgetRouter.post("/create_budget", user_auth, (req, res, next) => {
   );
 });
 
+budgetRouter.post("/create_sub_budget", user_auth, (req, res, next) => {
+  const budget_id = req.body.budget_id;
+  const sub_budget_name = req.body.sub_budget_name;
+  const total_amount = req.body.total_amount;
+
+  const create_sub_budget_query =
+    "INSERT INTO SUB_BUDGET(budget_id, name ,owner_id ,total_amount ,last_updated) VALUES ($1, $2, $3, $4 ,now())";
+
+  pg_pool.query(
+    create_sub_budget_query,
+    [budget_id, sub_budget_name, req.user_id, total_amount],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        res.status(500);
+        res.send("Error Entering into DB");
+      } else {
+        if (!res.headersSent) {
+          res.status(200);
+          res.send("Created New Sub Budget from " + budget_id);
+        }
+      }
+    }
+  );
+});
+
 budgetRouter.post("/add_friend_to_sub_budget", user_auth, (req, res, next) => {
   const sub_budget_id = req.body.sub_budget_id;
   const amount_total = req.body.amount_total;
@@ -85,32 +111,6 @@ budgetRouter.post("/add_friend_to_sub_budget", user_auth, (req, res, next) => {
     );
     release();
   });
-});
-
-budgetRouter.post("/create_sub_budget", user_auth, (req, res, next) => {
-  const budget_id = req.body.budget_id;
-  const sub_budget_name = req.body.sub_budget_name;
-  const total_amount = req.body.total_amount;
-
-  const create_sub_budget_query =
-    "INSERT INTO SUB_BUDGET(budget_id, name ,owner_id ,total_amount ,last_updated) VALUES ($1, $2, $3, $4 ,now())";
-
-  pg_pool.query(
-    create_sub_budget_query,
-    [budget_id, sub_budget_name, req.user_id, total_amount],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-        res.status(500);
-        res.send("Error Entering into DB");
-      } else {
-        if (!res.headersSent) {
-          res.status(200);
-          res.send("Created New Sub Budget from " + budget_id);
-        }
-      }
-    }
-  );
 });
 
 module.exports = budgetRouter;
