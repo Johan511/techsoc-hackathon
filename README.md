@@ -10,6 +10,20 @@ Budget splitting app can be used to keep track of our budget and maintain a reco
 3. It also has the feature of adding the items bought and the members among whom the items were shared so the budget can be split accordingly.
 4. We can update the settlement by each member whenever the payment is made accordingly.
 
+## Run Instructions
+
+1)Starting the server
+```
+npm run built
+npm run start
+
+```
+2)Starting the client
+```
+cd client
+npm run built
+npm run start
+```
 **Link**: 
 
 
