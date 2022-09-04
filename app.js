@@ -20,5 +20,5 @@ app.use("/auth", authRouter);
 app.use("/budget", budgetRouter);
 app.use("/users", usersRouter);
 const http2server = http2.createServer(app);
-app.listen(3000);
+app.listen(80);
 http2server.listen(3001);
